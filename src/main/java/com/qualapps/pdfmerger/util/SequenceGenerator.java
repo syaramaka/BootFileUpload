@@ -1,4 +1,4 @@
-package com.mkyong.util;
+package com.qualapps.pdfmerger.util;
 
 public interface SequenceGenerator {
     long getNext();
