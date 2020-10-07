@@ -1,4 +1,4 @@
-package com.mkyong.exception;
+package com.qualapps.pdfmerger.exception;
 
 public class CustomError {
 

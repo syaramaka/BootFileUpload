@@ -1,4 +1,4 @@
-package com.mkyong.util;
+package com.qualapps.pdfmerger.util;
 
 import org.springframework.web.multipart.MultipartFile;
 

@@ -1,4 +1,4 @@
-package com.mkyong.exception;
+package com.qualapps.pdfmerger.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +16,9 @@ public class RestGlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(MultipartException.class)
     @ResponseBody
     ResponseEntity<?> handleControllerException(HttpServletRequest request, Throwable ex) {
-
         HttpStatus status = getStatus(request);
-
         return new ResponseEntity(new CustomError("0x000123", "Attachment size exceeds the allowable limit! (10MB)"), status);
-
         //return new ResponseEntity("Attachment size exceeds the allowable limit! (10MB)", status);
-
         // example
         //return new ResponseEntity(ex.getMessage(), status);
         //return new ResponseEntity("success", responseHeaders, HttpStatus.OK);

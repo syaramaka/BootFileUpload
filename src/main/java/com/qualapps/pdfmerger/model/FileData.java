@@ -1,6 +1,7 @@
-package com.mkyong.model;
+package com.qualapps.pdfmerger.model;
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Entity
@@ -11,10 +12,20 @@ public class FileData {
     @GeneratedValue
     private UUID fileId;
     private String fileType;
-    private Date uploadedDate;
+    private Timestamp uploadedDate;
     private long fileSize;
     private String fileName;
+    @Lob
+    private byte[] content;
 
+    @Column(name = "FILE")
+    public byte[] getContent() {
+        return content;
+    }
+
+    public void setContent(byte[] content) {
+        this.content = content;
+    }
     @Column(name = "FILENAME")
     public String getFileName() {
         return fileName;
@@ -39,14 +50,15 @@ public class FileData {
     public void setFileType(String fileType) {
         this.fileType = fileType;
     }
+
     @Column(name = "UPLOADEDDATE")
-    public Date getUploadedDate() {
+    public Timestamp getUploadedDate() {
         return uploadedDate;
     }
-
-    public void setUploadedDate(Date uploadedDate) {
+    public void setUploadedDate(Timestamp uploadedDate) {
         this.uploadedDate = uploadedDate;
     }
+
     @Column(name = "FILESIZE")
     public long getFileSize() {
         return fileSize;
@@ -59,11 +71,12 @@ public class FileData {
     @Override
     public String toString() {
         return "FileData{" +
-                "fileName='" + fileName + '\'' +
-                ", fileId=" + fileId +
+                "fileId=" + fileId +
                 ", fileType='" + fileType + '\'' +
                 ", uploadedDate=" + uploadedDate +
                 ", fileSize=" + fileSize +
+                ", fileName='" + fileName + '\'' +
+                ", content=" + content +
                 '}';
     }
 }
